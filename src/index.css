@@ -3,3 +3,71 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 400;
+}
+
+.app {
+  height: 100vh;
+  display: flex;
+  color: white;
+  background-color: #020230;
+}
+
+main {
+  width: 75%;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), #020230),
+    url('./assets/img/bg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.pyramid {
+  width: 25%;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
+}
+
+.money-list {
+  width: 100%;
+}
+
+.money-list li {
+  list-style: none;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.money-list-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.money-list-item.active {
+  background-color: #3d8585;
+}
+
+.list-item-number {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: white;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  outline: 1px solid white;
+  outline-offset: 3px;
+}
+
+.list-item-amount {
+  font-weight: 500;
+}
