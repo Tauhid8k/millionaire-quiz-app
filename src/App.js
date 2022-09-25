@@ -1,4 +1,8 @@
+import { useState } from 'react';
+
 function App() {
+  const [questionNumber, setQuestionNumber] = useState(1);
+
   const moneyPyramid = [
     { id: 1, amount: '$100' },
     { id: 2, amount: '$200' },
@@ -19,15 +23,27 @@ function App() {
 
   return (
     <div className="app">
-      <main>Main</main>
+      <main>
+        <div className="top">
+          <div className="timer">30</div>
+        </div>
+        <div className="bottom">Questions and Answers</div>
+      </main>
       <div className="pyramid">
         <ul className="money-list">
-          {moneyPyramid.map((m) => (
-            <li className="money-list-item" key={m.id}>
-              <span className="list-item-number">{m.id}</span>
-              <span className="list-item-amount">{m.amount}</span>
-            </li>
-          ))}
+          {moneyPyramid
+            .map((m) => (
+              <li
+                className={`money-list-item ${
+                  questionNumber === m.id ? 'active' : ''
+                }`}
+                key={m.id}
+              >
+                <span className="list-item-number">{m.id}</span>
+                <span className="list-item-amount">{m.amount}</span>
+              </li>
+            ))
+            .reverse()}
         </ul>
       </div>
     </div>
