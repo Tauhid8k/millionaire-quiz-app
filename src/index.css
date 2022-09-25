@@ -53,6 +53,50 @@ main .bottom {
   justify-content: center;
 }
 
+.trivia {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.question {
+  padding: 1rem;
+  border: 2px solid white;
+  border-radius: 8px;
+  background-image: linear-gradient(#020230, black);
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.answers {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.answer {
+  width: 40%;
+  padding: 1rem;
+  background-image: linear-gradient(#0e0124, #22074d);
+  border: 1px solid white;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.answer:hover {
+  background: linear-gradient(#22074d, #0e0124);
+}
+
+.answer.active {
+  background: mediumblue;
+}
+
 .pyramid {
   width: 25%;
   padding: 1rem;
