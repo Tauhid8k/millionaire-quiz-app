@@ -5,7 +5,7 @@
 }
 
 :root {
-  --primary: #fac214;
+  --warning: #fac214;
   --bg-color: #151a20;
   --gray: #313a46;
   --green: #5cdb94;
@@ -69,23 +69,39 @@ main .timer {
   box-shadow: 0px 0px 10px 5px, inset 0px 0px 20px 5px;
 }
 
-.trivia {
-}
-
 .question {
+  color: white;
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin-bottom: 2rem;
 }
 
 .answers {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
 }
 
 .answer {
+  flex: 0 0 45%;
+  text-align: center;
+  border-radius: 4px;
+  color: white;
+  box-shadow: 0px 0px 0px 0px, inset 0px 0px 20px 0px;
+  padding: 10px;
+  cursor: pointer;
+  font-weight: 500;
 }
 
 .answer:hover {
+  box-shadow: 0px 0px 0px 0px var(--light-blue),
+    inset 0px 0px 20px 0px var(--light-blue);
 }
 
 .answer.active {
-  background: mediumblue;
+  box-shadow: 0px 0px 0px 0px var(--light-blue),
+    inset 0px 0px 20px 0px var(--light-blue);
 }
 
 .answer.correct {
@@ -97,16 +113,19 @@ main .timer {
   0%,
   22%,
   42% {
-    background: mediumblue;
+    box-shadow: 0px 0px 0px 0px var(--light-blue),
+      inset 0px 0px 20px 0px var(--light-blue);
   }
   20%,
   40%,
   60% {
-    background: ;
+    box-shadow: 0px 0px 0px 0px var(--warning),
+      inset 0px 0px 20px 0px var(--warning);
   }
   62%,
   100% {
-    background: ;
+    box-shadow: 0px 0px 0px 0px var(--green),
+      inset 0px 0px 20px 0px var(--green);
   }
 }
 
@@ -119,16 +138,18 @@ main .timer {
   0%,
   22%,
   42% {
-    background: ;
+    box-shadow: 0px 0px 0px 0px var(--light-blue),
+      inset 0px 0px 20px 0px var(--light-blue);
   }
   20%,
   40%,
   60% {
-    background: ;
+    box-shadow: 0px 0px 0px 0px var(--warning),
+      inset 0px 0px 20px 0px var(--warning);
   }
   62%,
   100% {
-    background: ;
+    box-shadow: 0px 0px 0px 0px var(--red), inset 0px 0px 20px 0px var(--red);
   }
 }
 
