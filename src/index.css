@@ -4,33 +4,56 @@
   box-sizing: border-box;
 }
 
+:root {
+  --primary: #fac214;
+  --bg-color: #151a20;
+  --gray: #313a46;
+  --green: #5cdb94;
+  --red: crimson;
+  --light-blue: #6568f3;
+  --dark: #303030;
+}
+
 body {
+  height: 100vh;
   font-family: 'Quicksand', sans-serif;
   font-weight: 400;
+  background-color: var(--bg-color);
+}
+
+.container {
+  width: min(100%, 1270px);
+  padding: 0 15px;
+  margin: 0 auto;
 }
 
 .app {
-  height: 100vh;
-  display: flex;
-  color: white;
-  background-color: #020230;
-}
-
-main {
-  width: 75%;
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), #020230),
-    url('./assets/img/bg.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
   display: flex;
   flex-direction: column;
+  height: 100vh;
 }
 
-main .top {
-  height: 50%;
-  display: grid;
-  place-items: center;
+/* Navbar */
+.navbar {
+  align-self: flex-start;
+  width: 100%;
+  padding: 1rem 0;
+  background-color: var(--dark);
+}
+
+.navbar .nav-text {
+  font-size: 1.2rem;
+  color: white;
+}
+
+/* Main Area */
+main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: calc(100% - 300px);
 }
 
 main .timer {
@@ -40,73 +63,110 @@ main .timer {
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  border: 4px solid white;
-  outline: 2px solid white;
+  border: 3px solid var(--primary);
+  outline: 3px solid var(--primary);
   outline-offset: 3px;
   font-size: 3rem;
-  background-color: #020230;
-}
-
-main .bottom {
-  height: 50%;
-  display: flex;
-  justify-content: center;
+  color: white;
 }
 
 .trivia {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
 }
 
 .question {
-  padding: 1rem;
-  border: 2px solid white;
-  border-radius: 8px;
-  background-image: linear-gradient(#020230, black);
-  font-size: 1.5rem;
-  font-weight: 500;
 }
 
 .answers {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 1.5rem;
 }
 
 .answer {
-  width: 40%;
-  padding: 1rem;
-  background-image: linear-gradient(#0e0124, #22074d);
-  border: 1px solid white;
-  border-radius: 8px;
-  font-size: 1.2rem;
-  font-weight: 400;
-  cursor: pointer;
 }
 
 .answer:hover {
-  background: linear-gradient(#22074d, #0e0124);
 }
 
 .answer.active {
   background: mediumblue;
 }
 
+.answer.correct {
+  animation: correct 3s forwards;
+}
+
+/* Correct Answer Animation */
+@keyframes correct {
+  0%,
+  22%,
+  42% {
+    background: mediumblue;
+  }
+  20%,
+  40%,
+  60% {
+    background: ;
+  }
+  62%,
+  100% {
+    background: ;
+  }
+}
+
+/* Wrong Answer Animation */
+.answer.wrong {
+  animation: wrong 3s forwards;
+}
+
+@keyframes wrong {
+  0%,
+  22%,
+  42% {
+    background: ;
+  }
+  20%,
+  40%,
+  60% {
+    background: ;
+  }
+  62%,
+  100% {
+    background: ;
+  }
+}
+
+/* Money Pyramid */
 .pyramid {
-  width: 25%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 300px;
   padding: 1rem;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: var(--gray);
+}
+
+.pyramid-close-btn {
+  position: absolute;
+  top: 0;
+  left: -55px;
+  width: 55px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  background-color: var(--gray);
+  color: white;
 }
 
 .money-list {
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 1rem;
   width: 100%;
   overflow-y: auto;
@@ -120,37 +180,45 @@ main .bottom {
   scrollbar-width: none; /* Firefox */
 }
 
-.money-list li {
-  width: 100%;
-  list-style: none;
-  padding: 10px;
-  border-radius: 4px;
-}
-
 .money-list-item {
+  list-style: none;
   display: flex;
-  align-items: center;
-  gap: 2rem;
+  width: 100%;
+  font-size: 1.5rem;
+  gap: 1rem;
 }
 
 .money-list-item.active {
-  background-color: #3d8585;
+  background-color: var(--light-blue);
 }
 
 .list-item-number {
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  background-color: white;
-  color: black;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 500;
-  outline: 1px solid white;
-  outline-offset: 3px;
+  flex: 0 0 50%;
 }
 
 .list-item-amount {
+  display: flex;
+  align-items: center;
+  flex: 0 0 50%;
+}
+
+.list-item-number h5 {
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid white;
+  color: white;
+}
+
+.active .list-item-number h5 {
+  background-color: white;
+  color: black;
+}
+
+.list-item-amount h5 {
+  color: white;
   font-weight: 500;
 }
