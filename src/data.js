@@ -65,6 +65,50 @@ const questionData = [
       },
     ],
   },
+  {
+    id: 4,
+    question: 'Who is The Net Ninja?',
+    answers: [
+      {
+        text: 'A kung fu master',
+        correct: false,
+      },
+      {
+        text: 'A famous ninja',
+        correct: false,
+      },
+      {
+        text: 'A youtuber',
+        correct: true,
+      },
+      {
+        text: 'A movie character',
+        correct: false,
+      },
+    ],
+  },
+  {
+    id: 5,
+    question: 'Most sold manga?',
+    answers: [
+      {
+        text: 'Naruto',
+        correct: false,
+      },
+      {
+        text: 'Dragon ball Z',
+        correct: false,
+      },
+      {
+        text: 'Tokyo ghoul',
+        correct: false,
+      },
+      {
+        text: 'One piece',
+        correct: true,
+      },
+    ],
+  },
 ];
 
 const moneyPyramid = [

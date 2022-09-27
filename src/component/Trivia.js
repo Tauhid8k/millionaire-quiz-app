@@ -1,4 +1,27 @@
-const Trivia = () => {
+import { useEffect, useState } from 'react';
+
+const Trivia = ({
+  questionData,
+  setTimeOut,
+  questionNumber,
+  setQuestionNumber,
+}) => {
+  const [question, setQuestion] = useState(null);
+  const [selectedAns, setSelectedAns] = useState(null);
+  const [className, setClassName] = useState('');
+
+  useEffect(() => {
+    setQuestion(questionData[questionNumber - 1]);
+  }, [questionData, questionNumber]);
+
+  const clickAnsHandler = (ans) => {
+    setSelectedAns(ans);
+    setClassName('active');
+    setTimeout(() => {
+      setClassName(ans.correct ? 'correct' : 'wrong');
+    }, 3000);
+  };
+
   return (
     <div className="trivia">
       <div
@@ -10,14 +33,17 @@ const Trivia = () => {
           textAlign: 'center',
         }}
       >
-        <div className="question">
-          What's the best youtube channel for coding?
-        </div>
+        <div className="question">{question?.question}</div>
         <div className="answers">
-          <div className="answer wrong">Lama Dev</div>
-          <div className="answer">Lama Dev</div>
-          <div className="answer">Lama Dev</div>
-          <div className="answer">Lama Dev</div>
+          {question?.answers.map((ans, index) => (
+            <div
+              className={`answer ${selectedAns === ans ? className : ''}`}
+              onClick={() => clickAnsHandler(ans)}
+              key={index}
+            >
+              {ans.text}
+            </div>
+          ))}
         </div>
       </div>
     </div>

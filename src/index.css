@@ -9,7 +9,7 @@
   --bg-color: #151a20;
   --gray: #313a46;
   --green: #5cdb94;
-  --red: crimson;
+  --red: red;
   --light-blue: #6568f3;
   --dark: #303030;
 }
@@ -96,12 +96,12 @@ main .timer {
 
 .answer:hover {
   box-shadow: 0px 0px 0px 0px var(--light-blue),
-    inset 0px 0px 20px 0px var(--light-blue);
+    inset 0px 0px 20px 4px var(--light-blue);
 }
 
 .answer.active {
   box-shadow: 0px 0px 0px 0px var(--light-blue),
-    inset 0px 0px 20px 0px var(--light-blue);
+    inset 0px 0px 20px 4px var(--light-blue);
 }
 
 .answer.correct {
@@ -114,18 +114,18 @@ main .timer {
   22%,
   42% {
     box-shadow: 0px 0px 0px 0px var(--light-blue),
-      inset 0px 0px 20px 0px var(--light-blue);
+      inset 0px 0px 20px 4px var(--light-blue);
   }
   20%,
   40%,
   60% {
     box-shadow: 0px 0px 0px 0px var(--warning),
-      inset 0px 0px 20px 0px var(--warning);
+      inset 0px 0px 20px 4px var(--warning);
   }
   62%,
   100% {
     box-shadow: 0px 0px 0px 0px var(--green),
-      inset 0px 0px 20px 0px var(--green);
+      inset 0px 0px 20px 4px var(--green);
   }
 }
 
