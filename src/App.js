@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import Navbar from './component/Navbar';
 import Pyramid from './component/Pyramid';
+import Timer from './component/Timer';
 import Trivia from './component/Trivia';
 import { moneyPyramid, questionData } from './data';
 
@@ -23,6 +24,10 @@ function App() {
       );
   }, [questionNumber]);
 
+  const playAgainHandler = () => {
+    setStop(false);
+  };
+
   return (
     <div className="app">
       <Navbar />
@@ -30,11 +35,18 @@ function App() {
         {stop ? (
           <>
             <h1 className="earned-heading">You've earned {earned}</h1>
-            <button className="play-again-btn">Play Again</button>
+            <button
+              className="play-again-btn"
+              onClick={() => playAgainHandler()}
+            >
+              Play Again
+            </button>
           </>
         ) : (
           <>
-            <div className="timer">30</div>
+            <div className="timer">
+              <Timer setStop={setStop} questionNumber={questionNumber} />
+            </div>
             <Trivia {...triviaProps} />
           </>
         )}
