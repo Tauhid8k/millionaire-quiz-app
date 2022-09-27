@@ -19,6 +19,7 @@ body {
   font-family: 'Quicksand', sans-serif;
   font-weight: 400;
   background-color: var(--bg-color);
+  overflow-x: auto;
 }
 
 .container {
@@ -241,4 +242,23 @@ main .timer {
 .list-item-amount h5 {
   color: white;
   font-weight: 500;
+}
+
+.earned-heading {
+  color: white;
+  font-size: 3rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
+
+.play-again-btn {
+  border: 0;
+  outline: 0;
+  color: white;
+  background-color: transparent;
+  font-size: 1.4rem;
+  padding: 7px 25px;
+  box-shadow: 0px 0px 0px 0px, inset 0px 0px 20px 0px;
+  cursor: pointer;
+  border-radius: 4px;
 }
