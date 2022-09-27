@@ -9,12 +9,28 @@ function App() {
   const [questionNumber, setQuestionNumber] = useState(1);
   const [stop, setStop] = useState(false);
   const [earned, setEarned] = useState('$0');
+  const [timer, setTimer] = useState(30);
+  const [timerClass, setTimerClass] = useState(false);
 
   const triviaProps = {
     questionData,
     setStop,
     questionNumber,
     setQuestionNumber,
+    timerClass,
+    setTimerClass,
+  };
+
+  const timerProps = {
+    setStop,
+    questionNumber,
+    timer,
+    setTimer,
+  };
+
+  const pyramidProps = {
+    questionNumber,
+    moneyPyramid,
   };
 
   useEffect(() => {
@@ -44,14 +60,14 @@ function App() {
           </>
         ) : (
           <>
-            <div className="timer">
-              <Timer setStop={setStop} questionNumber={questionNumber} />
+            <div className={`timer ${timerClass ? 'gold-timer' : ''}`}>
+              <Timer {...timerProps} />
             </div>
             <Trivia {...triviaProps} />
           </>
         )}
       </main>
-      <Pyramid questionNumber={questionNumber} moneyPyramid={moneyPyramid} />
+      <Pyramid {...pyramidProps} />
     </div>
   );
 }

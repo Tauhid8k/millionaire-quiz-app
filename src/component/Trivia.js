@@ -5,6 +5,8 @@ const Trivia = ({
   setStop,
   questionNumber,
   setQuestionNumber,
+  timerClass,
+  setTimerClass,
 }) => {
   const [question, setQuestion] = useState(null);
   const [selectedAns, setSelectedAns] = useState(null);
@@ -23,6 +25,7 @@ const Trivia = ({
   const clickAnsHandler = (ans) => {
     setSelectedAns(ans);
     setClassName('active');
+    setTimerClass(true);
     delay(3000, () => {
       setClassName(ans.correct ? 'correct' : 'wrong');
     });
@@ -30,9 +33,11 @@ const Trivia = ({
       if (ans.correct) {
         setQuestionNumber((prev) => prev + 1);
         setSelectedAns(null);
+        setTimerClass(false);
       } else {
         setStop(true);
         setQuestionNumber(1);
+        setTimerClass(false);
       }
     });
   };
