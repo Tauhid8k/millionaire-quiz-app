@@ -24,6 +24,7 @@ function App() {
   const timerProps = {
     setStop,
     questionNumber,
+    setQuestionNumber,
     timer,
     setTimer,
   };
